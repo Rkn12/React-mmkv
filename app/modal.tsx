@@ -21,6 +21,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     padding: 20,
+    color: '#333',
   },
   link: {
     marginTop: 15,
