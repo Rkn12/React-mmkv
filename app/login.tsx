@@ -1,16 +1,16 @@
+import { router } from "expo-router";
+import { signInWithEmailAndPassword } from "firebase/auth";
 import { useState } from "react";
 import {
-  View,
+  ScrollView,
+  StyleSheet,
   Text,
   TextInput,
   TouchableOpacity,
-  StyleSheet,
-  ScrollView,
+  View,
 } from "react-native";
-import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../lib/firebase";
 import { setLogin } from "../lib/mmkv";
-import { router } from "expo-router";
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -35,7 +35,7 @@ export default function Login() {
         email,
         realPassword
       );
-      setLogin({ uid: res.user.uid, email: res.user.email });
+      setLogin({ uid: res.user.uid, email: res.user.email, password: realPassword });
       router.replace("/");
     } catch (err) {
       console.log("LOGIN ERROR:", err);
